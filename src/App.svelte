@@ -8,12 +8,16 @@
 	let searchTerm = "";
 	
 	// $: filteredList = items.filter(item => item.name.indexOf(searchTerm) !== -1);
-	$: filteredList = items.filter(item => {
-		const arr = searchTerm.split(' ').filter((character) => character != ''); // Filter to remove spaces (it will match any name that has space in it)
-		return arr.some(el => item.nama.toLowerCase().includes(el) || item.npm.toLowerCase().includes(el) || item.jurusan.toLowerCase().includes(el) || item.fakultas.toLowerCase().includes(el));
-		// The filtering is a work in progress. For now, one defect can be found with the string: `Andre Christoga`
-		// Just the string `andre` would give 6 results. But when the string is `andre christ`, the results increases; shouldn't it decreases instead?
-  })
+// 	$: filteredList = items.filter(item => {
+// 		const arr = searchTerm.split(' ').filter((character) => character != ''); // Filter to remove spaces (we do this so that it does not match any name that has space in it)
+// 		return arr.some(el => item.nama.toLowerCase().includes(el) || item.npm.toLowerCase().includes(el) || item.jurusan.toLowerCase().includes(el) || item.fakultas.toLowerCase().includes(el));
+// 		// The filtering is a work in progress. For now, one defect can be found with the string: `Andre Christoga`
+// 		// Just the string `andre` would give 6 results. But when the string is `andre christ`, the results increases; shouldn't it decreases instead?
+//   })
+	$: filteredList = searchTerm ? items.filter(item => {
+		const query = searchTerm.toLowerCase()
+		return item.nama.toLowerCase().includes(query) || item.npm.toLowerCase().includes(query) || item.jurusan.toLowerCase().includes(query) || item.fakultas.toLowerCase().includes(query)
+	}) : [];
 	
   let start;
   let end;
