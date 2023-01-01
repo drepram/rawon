@@ -19,7 +19,7 @@
 
 <h1>Rawon</h1>
 <p>Samudra profil mahasiswa UI! Data saat ini baru dari FMIPA saja.</p>
-<p>Situs ini diprakarsai <a href="https://instagram.com/drepram">drepram</a> (FMIPA '20), <a href="https://instagram.com/fhzuhdi">fhzuhdi</a> (Fasilkom '20).</p>
+<p>Situs ini diprakarsai <a href="https://instagram.com/drepram">drepram</a> (FMIPA '20).</p>
 
 Masukkan nama/npm/jurusan/fakultas: <input bind:value={searchTerm} />
 
